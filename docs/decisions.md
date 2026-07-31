@@ -38,6 +38,33 @@ private, and sells the result as a government contract.
 Trade-off accepted: some organisations refuse AGPL software on policy grounds,
 so this costs a little adoption. Worth it here.
 
+## 2026-07-31 — Public repository, PR-only branches
+
+`Hazenfield/Madagascar`, public from the first commit.
+
+`main`, `staging` and `dev` accept pull requests only. Nobody pushes to them
+directly except repository admins, and every merge needs an approving review
+from a code owner, resolved conversations, a linear history and cryptographically
+signed commits. Force pushes and branch deletion are blocked outright.
+
+The signing requirement is not ceremony. A project whose central claim is that
+its records cannot be altered without detection cannot have a source history that
+can be. Anyone should be able to check that the code running a register is the
+code that was reviewed.
+
+Admins keep a bypass for now, while I am effectively working alone and the
+overhead of a pull request for a one-line documentation fix is not yet worth it.
+That bypass should be removed once anyone else is contributing — the rules are
+worth more when they bind me too.
+
+One org-level detail worth knowing: the Hazenfield organisation grants members
+write access by default, and GitHub does not allow a repository to grant less
+than the organisation's baseline. So branch rules, not repository permissions,
+are what actually keep the protected branches safe here.
+
+Contributions from forks cannot read secrets, and their workflows require
+explicit approval before they run. Secret scanning and push protection are on.
+
 ---
 
 ## Open questions
