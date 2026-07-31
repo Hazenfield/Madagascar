@@ -6,6 +6,18 @@ it, and including by me.
 This is a general layer that applies to the whole application. It is not
 specific to land, or to births, or to any procedure added later.
 
+## What this is measured against
+
+Not an ideal system. Today the register is paper, and a fonctionnaire can enter a
+person who does not exist without anything making it visible. There is no
+attribution, no cross-check between communes, and no way for anyone outside the
+office to look.
+
+That is the baseline. It matters, because it sets how much is worth building now
+versus later: the first controls to exist here are worth far more than the last
+ones, and a design that waits for perfect is worse than one that removes the
+easiest abuses this year.
+
 ## The claim, narrowly stated
 
 Someone with root on a server can change bytes. That is true of every system,
@@ -65,10 +77,19 @@ what the register said. Millions of people become witnesses without ever being
 recruited, and history cannot be rewritten out from under receipts already in
 circulation.
 
-**6. Entries are signed where they are made.**
-Each entry carries the signature of the officer who made it. Database access is
-not enough to append: it requires a key, which is attributable, revocable, and
-noisy when stolen.
+**6. Every entry is attributed to an account, and sensitive acts need a second
+pair of eyes.**
+Writes are made through accounts with roles, and certain acts are only final once
+validated at a higher level of access. See [authorization.md](authorization.md).
+
+What that gives up, stated plainly: with accounts rather than a personal key per
+officer, a technical administrator could in principle act as another user, so
+attribution is what the system asserts rather than what the officer proved. That
+weakens *attribution*. It does not weaken *history* — the log remains append-only,
+hash-chained and witnessed, so nothing can be removed or rewritten afterwards.
+
+Personal keys can be added later for high-value acts without changing anything
+else, because an entry can carry a signature or not.
 
 ## Witnesses
 
@@ -115,16 +136,49 @@ the fastest way to lose the credibility it needs.
 - **Destruction and refusal.** Root can delete everything, or simply decline to
   serve. That is answered by replication and governance, not by tamper-evidence.
 
+## When a witness goes quiet
+
+A witness stops signing for one of several reasons, roughly in order of how often
+they happen: it lost power or connectivity; the person who ran it left and nobody
+replaced them; hardware failed or a key was lost; the organisation was pressured
+to stop; or it looked at a checkpoint and refused to sign.
+
+That last one is not a failure. It is the alarm working. So **silence and refusal
+must not look alike** — a witness needs a way to publish a refusal *with a
+reason*, otherwise the most important signal the system can produce is
+indistinguishable from a flat battery.
+
+The procedure when quorum degrades:
+
+1. **Detect.** Silence and refusal are recorded as different events.
+2. **Declare.** The degraded state is public, and any document issued while it
+   lasts carries that fact. Nothing silently claims a guarantee it did not have.
+3. **Continue.** The system keeps issuing. Refusing someone their birth
+   certificate because a university's server is down would punish citizens for
+   somebody else's infrastructure.
+4. **Inspect** — the hardening programme. The log is re-verified against every
+   checkpoint still in circulation, including the proofs held by citizens; the
+   projections are rebuilt and compared against it; entries made during the gap
+   get particular attention.
+5. **Conclude and re-anchor.** The verified state is signed again by the witness
+   set, which by then may include witnesses that were not there before. The
+   conclusion is itself an entry in the log, so the record carries its own audit
+   history.
+
+If the inspection finds a discrepancy, it is not quietly corrected. It is
+recorded *as* a discrepancy, with what was found and how it was resolved, and any
+document issued on the strength of the bad data can be traced from it.
+
 ## Deferred
 
-- **Per-procedure authorization rules**, including how many signatures a mutation
-  requires and what evidence must accompany it. These belong to the authorization
-  layer, not here.
+- **Personal cryptographic keys per officer**, for high-value acts. Roles and
+  validation levels come first; keys are an upgrade the log format already
+  accommodates.
+- **Per-procedure authorization rules**, including what a mutation requires.
+  These belong to the authorization layer, not here.
 
 ## Open
 
 - Quorum size, and how a witness is onboarded or removed.
 - How often checkpoints are published.
-- How officer keys are issued, stored and revoked.
-- What happens when a witness goes quiet — and how that is made visible rather
-  than silently tolerated.
+- How a witness publishes a refusal, and who is notified when one appears.

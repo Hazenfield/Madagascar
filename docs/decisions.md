@@ -98,6 +98,28 @@ Not built on a blockchain otherwise: it solves none of the actual failure modes,
 and it needs connectivity and running costs that communes with power cuts do not
 have.
 
+**Roles before keys.** Writes are attributed to accounts with roles, with
+sensitive acts validated at a higher level — see
+[architecture/authorization.md](architecture/authorization.md) — rather than
+signed by a personal key per officer. Measured against a paper register where a
+fonctionnaire can enter a person who does not exist and nothing shows it, roles
+and a validation step are not a modest control; they are the first one. Personal
+keys remain an upgrade the log format already accommodates, worth adding for
+high-value acts later. What this concedes is attribution — a technical
+administrator could act as another user — and not history, which stays
+append-only and witnessed.
+
+**A witness that goes quiet is not the same as a witness that refuses.** Refusal
+means it looked at a checkpoint and would not sign it, which is the alarm working
+rather than a fault, so the two are recorded differently and a witness can
+publish a refusal with its reason. When quorum degrades the system keeps issuing
+— withholding someone's birth certificate because a university's server is down
+would punish citizens for somebody else's infrastructure — but the degraded state
+is public, documents issued during it say so, and an inspection re-verifies the
+log against every checkpoint still in circulation before the record is re-anchored
+to the witness set. The conclusion is itself an entry, so the record carries its
+own audit history.
+
 What this does not solve is stated in the design and should be repeated whenever
 the system is described — it guarantees the record, not the truth.
 
