@@ -18,9 +18,9 @@ witnesses are independent. Closed source would quietly undercut the other two,
 because "trust the operator's binary" is exactly the assumption the whole design
 exists to remove.
 
-It also settles the adoption argument. The system can be had for free, today,
-and anyone who doesn't want me running it can run it themselves. That leaves
-only one objection standing, and it isn't a technical one.
+It also makes the case for adoption a straightforward one. The system is free,
+it can be inspected in full, and any institution that would rather not have me
+running it can run it themselves. Nobody has to take my word for anything.
 
 ## 2026-07-31 — AGPL-3.0
 

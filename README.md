@@ -18,8 +18,10 @@ software itself:
 
 - **Teaching** — Malagasy developers can watch the whole thing get built,
   decisions and mistakes included.
-- **Pressure** — once the tool exists, works, and people want it, not adopting
-  it becomes the thing that needs explaining.
+- **Advocacy** — I would like to see this adopted officially, and the most
+  honest case I can make for it is a working system, out in the open, that
+  people already find useful. Building it in public means anyone can judge it
+  on its merits.
 
 ## Open source
 
