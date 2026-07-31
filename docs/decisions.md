@@ -65,6 +65,42 @@ are what actually keep the protected branches safe here.
 Contributions from forks cannot read secrets, and their workflows require
 explicit approval before they run. Secret scanning and push protection are on.
 
+## 2026-07-31 — Integrity as a general layer, not a per-procedure feature
+
+Records are protected by an append-only, hash-chained log whose checkpoints are
+co-signed by independent witnesses, with every issued document carrying a proof
+that citizens keep. Full design in
+[architecture/integrity.md](architecture/integrity.md).
+
+Two things settled here.
+
+**The claim is detection, not prevention.** Anyone with root can change bytes;
+pretending otherwise would be dishonest and would collapse the first time someone
+competent looked. What the design guarantees is that a change is either rejected
+or provable by anyone, without trusting whoever runs the system — me included.
+That converts a single corrupt administrator into a conspiracy among parties who
+have no reason to cooperate.
+
+**Integrity is universal; authorization is per-procedure.** The integrity layer
+sees signed entries and knows nothing about what a birth or a parcel is. Rules
+about who may write what, and how many signatures an act needs, sit in a separate
+layer above it. Adding a new administrative domain must never mean touching the
+security core.
+
+Witnesses are chosen for divergent interests: other communes, banks and notaries
+who lose money if the register lies, universities and the press, plus a public
+blockchain used only to publish a hash as a timestamp that cannot be retracted.
+No token, no smart contract, and nothing about running the system depends on it.
+It is one signature in a quorum, and it is the one that survives every domestic
+witness being pressured at once.
+
+Not built on a blockchain otherwise: it solves none of the actual failure modes,
+and it needs connectivity and running costs that communes with power cuts do not
+have.
+
+What this does not solve is stated in the design and should be repeated whenever
+the system is described — it guarantees the record, not the truth.
+
 ---
 
 ## Open questions
