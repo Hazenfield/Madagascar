@@ -87,12 +87,18 @@ someone owns land they have already sold.
 
 ## What it should be
 
-A transfer that is initiated, followed, and completed visibly, where both
-parties can see where it stands, and where nobody's file can quietly stop moving
-without that being apparent.
+A single event, in person. Seller and buyer both present, each authorising from
+their own phone, witnesses attending as they already do, and two fonctionnaires
+co-signing. The transfer completes immediately, leaving nothing pending in an
+office afterwards — which is exactly where the delay, and the leverage that comes
+with it, lives today.
 
-Note the ambition is *not* to make the transfer instant. It is to make it
-observable and correctly ordered.
+Consent is the hardest thing to prove about a land sale, and every attempt to
+prove it on paper is an attempt to reconstruct after the fact something nobody
+watched. In a ceremony it is not reconstructed. It is observed, by people and by
+the register at the same moment.
+
+See [the ceremony](../architecture/apps.md#the-mutation-ceremony).
 
 ## The hard parts
 
