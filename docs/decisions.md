@@ -123,6 +123,27 @@ own audit history.
 What this does not solve is stated in the design and should be repeated whenever
 the system is described — it guarantees the record, not the truth.
 
+## 2026-08-01 — Go for the register, TypeScript for the clients
+
+`backend/` in Go with PostgreSQL. `frontend/` in React and TypeScript.
+`mobile_consumer/` and `mobile_admin/` in React Native.
+
+Go because of where this has to run. A register node belongs in a commune, on
+whatever hardware is in the room, surviving power cuts and hours without a
+network. Go builds a single static binary with no runtime to install and no
+dependency tree to keep alive on a machine nobody will maintain. The reference
+implementations of transparency logs are also Go, which matters for the part of
+this that must be got right rather than invented.
+
+The cost is real and accepted: Go has the smallest pool of developers in
+Madagascar of the options considered, it is slower for me to write than Python,
+and it is the least familiar thing to show on camera. Two languages across four
+applications is the ceiling I am willing to carry.
+
+React Native for both mobile applications so they share a language with the web
+client. Four applications maintained by a very small number of people is the
+binding constraint, not raw performance.
+
 ---
 
 ## Open questions

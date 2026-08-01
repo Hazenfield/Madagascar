@@ -30,9 +30,22 @@ of land or who was born where, being able to read every line is part of why
 anyone should accept it. Anyone can run it themselves; anyone who runs a
 modified version as a service has to publish their changes.
 
+## Layout
+
+| | |
+|---|---|
+| [`backend/`](backend/) | The register itself — Go, PostgreSQL, one node per commune or service |
+| [`frontend/`](frontend/) | The desk application for fonctionnaires — React, TypeScript |
+| [`mobile_consumer/`](mobile_consumer/) | For Malagasy people: their own records, and authorising anything done in their name |
+| [`mobile_admin/`](mobile_admin/) | For fonctionnaires, for acts that happen in a room rather than at a desk |
+| [`docs/`](docs/) | Design, one administrative domain at a time |
+
 ## Status
 
-Early. No code yet. I'm working through the administrative domains one at a
-time, and each one gets designed before anything gets built. That work lives in
-[`docs/`](docs/) — including a log of the [decisions](docs/decisions.md) taken
-so far.
+Early. The structure is in place and nothing real is built yet.
+
+I work through the administrative domains one at a time, and each gets designed
+before anything is written. The first two bodies and three procedures are scoped
+in [`docs/domains.md`](docs/domains.md); how records are kept honest is in
+[`docs/architecture/`](docs/architecture/); and every decision taken so far,
+with its reasoning, is in [`docs/decisions.md`](docs/decisions.md).
