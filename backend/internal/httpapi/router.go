@@ -1,7 +1,7 @@
 // Package httpapi exposes a register node over HTTP.
 //
 // Handlers here do no domain work. They decode a request, hand it to the package
-// that owns the decision, and encode the answer. Anything a fonctionnaire or a
+// that owns the decision, and encode the answer. Anything a registrar or a
 // citizen can do must be testable without starting a server.
 package httpapi
 

@@ -8,7 +8,7 @@ specific to land, or to births, or to any procedure added later.
 
 ## What this is measured against
 
-Not an ideal system. Today the register is paper, and a fonctionnaire can enter a
+Not an ideal system. Today the register is paper, and a registrar can enter a
 person who does not exist without anything making it visible. There is no
 attribution, no cross-check between communes, and no way for anyone outside the
 office to look.

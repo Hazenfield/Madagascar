@@ -102,7 +102,7 @@ have.
 sensitive acts validated at a higher level — see
 [architecture/authorization.md](architecture/authorization.md) — rather than
 signed by a personal key per officer. Measured against a paper register where a
-fonctionnaire can enter a person who does not exist and nothing shows it, roles
+registrar can enter a person who does not exist and nothing shows it, roles
 and a validation step are not a modest control; they are the first one. Personal
 keys remain an upgrade the log format already accommodates, worth adding for
 high-value acts later. What this concedes is attribution — a technical
@@ -143,6 +143,77 @@ applications is the ceiling I am willing to carry.
 React Native for both mobile applications so they share a language with the web
 client. Four applications maintained by a very small number of people is the
 binding constraint, not raw performance.
+
+## 2026-08-01 — One versioned PRD per administrative body
+
+Each administrative body gets one PRD, in [`prd/`](prd/), versioned on its own
+line from v0.1. The design notes that were in `domains/` became the v0.1 of their
+body; they are not kept alongside.
+
+The reason is traceability. Once code exists, every claim that something is
+missing — a review finding, a bug report, my own mid-task observation — has to
+trace back to a requirement, or it is an opinion, and building an opinion either
+spends review time on work nobody asked for or silently changes agreed behaviour.
+A prose paragraph cannot be traced to. `ETC-002` can. So the delta between the
+old design notes and a PRD is exactly this: stable identifiers, explicit scope,
+and a statement of what done means.
+
+Identifiers are never reused and never renumbered. A dropped requirement is
+marked withdrawn in place with its reason. If `ETC-004` means one thing in v0.1
+and another in v0.3, every citation of it rots silently, which is the failure the
+identifiers exist to prevent.
+
+Versions are per body, with superseded files kept on disk and marked as
+superseded at the top. The commune reaching v0.3 while the Domaines is still at
+v0.1 is the honest picture of working one domain at a time; a synchronised
+version would either misrepresent that or generate copies of documents that did
+not change. A version file is immutable once superseded — it records what I
+believed at the time, and editing it destroys the only thing it is for.
+
+Cross-references between PRDs name a specific version rather than "current". A
+PRD version is a point-in-time statement, and one that cited commune v0.1 stays
+accurate forever — the same reasoning that makes a CSJ answerable as of a date.
+
+Open questions get no identifier. Consent in a mutation, offline reconciliation,
+identity resolution across spelling variants: named problems, not settled
+requirements. Numbering them would dress an unanswered question as an agreed one.
+
+## 2026-08-01 — Registrar, not fonctionnaire
+
+The English word throughout is **registrar**.
+
+It names the function rather than the employment status, which is what these
+documents are about: a person whose job is the register. It is also the standard
+English term in both domains covered here — Registrar of Births, Deaths and
+Marriages, and Land Registrar. "Civil servant" points at a payroll instead of a
+register, and sits badly next to "civil register".
+
+It does not collide with the roles in
+[architecture/authorization.md](architecture/authorization.md), which are Agent
+and Officer in charge. Registrar is the generic word above those, exactly where
+fonctionnaire sat.
+
+## 2026-08-01 — Malagasy is the source language
+
+Everything a user reads is written in Malagasy first and translated into French
+and English. Code, comments, commit messages and these documents are in English.
+
+Malagasy is the source, not a target. A string written in English and then
+localised carries the shape of English, and the people this is built for are
+Malagasy — the same reason the podcast is in Malagasy. Where a translation cannot
+carry what the Malagasy says, the Malagasy is right and the translation gets
+reworked.
+
+French and English are carried because administrations, courts and any
+institution assessing this system work in French, and because an international
+reader should be able to audit a system that holds public records. Neither is a
+reason to write in them first.
+
+The split at the code boundary is deliberate. Making the interface Malagasy costs
+nothing in reviewability; making the *code* Malagasy would exclude every reviewer
+who does not speak it, and this project's argument depends on being reviewable by
+people who were not in the room. The contributor rules are in
+[CONTRIBUTING.md](../CONTRIBUTING.md).
 
 ---
 

@@ -7,7 +7,7 @@ Main lines only.
 
 ## What this replaces
 
-Today a fonctionnaire can register a person who does not exist, and a paper
+Today a registrar can enter a person who does not exist, and a paper
 register makes that invisible. There is no attribution, no second pair of eyes,
 and no way for anyone outside the office to look.
 

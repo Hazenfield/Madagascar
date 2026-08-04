@@ -70,3 +70,27 @@ they would elsewhere:
 - **It has to work offline, on bad connections and through power cuts.** A
   feature that assumes a reliable link to a central server is not usable in most
   of the country.
+
+## Language
+
+**Malagasy is the source language for everything a user reads.** Interface text,
+labels, error messages, notifications, printed documents — all of it is written
+in Malagasy first, then translated into French and English.
+
+Not the other way round. A string written in English and then localised carries
+the shape of English, and the people this is built for are Malagasy. Where a
+translation cannot carry what the Malagasy says, the Malagasy is right and the
+translation is the one that gets reworked.
+
+**Everything else is in English:** code, identifiers, comments, tests, commit
+messages, pull requests and the documents in `docs/`. That is not a preference,
+it is what lets someone who does not speak Malagasy review a change to a system
+that holds public records.
+
+Concretely, for a pull request that touches user-facing text:
+
+- The Malagasy string is the entry in the translation files, and the French and
+  English entries are derived from it.
+- A new string with no Malagasy is incomplete, whatever else it has.
+- Never hard-code user-facing text in a component. It goes in the translation
+  files, in all three languages.

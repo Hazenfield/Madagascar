@@ -35,17 +35,25 @@ modified version as a service has to publish their changes.
 | | |
 |---|---|
 | [`backend/`](backend/) | The register itself — Go, PostgreSQL, one node per commune or service |
-| [`frontend/`](frontend/) | The desk application for fonctionnaires — React, TypeScript |
+| [`frontend/`](frontend/) | The desk application for registrars — React, TypeScript |
 | [`mobile_consumer/`](mobile_consumer/) | For Malagasy people: their own records, and authorising anything done in their name |
-| [`mobile_admin/`](mobile_admin/) | For fonctionnaires, for acts that happen in a room rather than at a desk |
+| [`mobile_admin/`](mobile_admin/) | For registrars, for acts that happen in a room rather than at a desk |
 | [`docs/`](docs/) | Design, one administrative domain at a time |
+
+## Language
+
+Everything a user reads is written in **Malagasy first**, then translated into
+French and English. Malagasy is the source, not a localisation of something
+written in another language. Code, comments, commit messages and these documents
+are in English.
 
 ## Status
 
 Early. The structure is in place and nothing real is built yet.
 
 I work through the administrative domains one at a time, and each gets designed
-before anything is written. The first two bodies and three procedures are scoped
-in [`docs/domains.md`](docs/domains.md); how records are kept honest is in
+before anything is written. The first two bodies and three procedures are
+specified in [`docs/prd/`](docs/prd/), one versioned PRD per administrative
+body; how records are kept honest is in
 [`docs/architecture/`](docs/architecture/); and every decision taken so far,
 with its reasoning, is in [`docs/decisions.md`](docs/decisions.md).

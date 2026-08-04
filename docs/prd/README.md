@@ -6,11 +6,28 @@ I take them one at a time, and each gets designed before anything is built.
 Deliberately small to begin with: two bodies, three procedures — the three that
 cost me the most time and patience.
 
-| # | Body | Procedure | Kind | Design |
-|---|------|-----------|------|--------|
-| 1 | Commune — état civil | Acte de naissance | read | [commune.md](domains/commune.md) |
-| 2 | Service des Domaines | Certificat de Situation Juridique (CSJ) | read | [service-des-domaines.md](domains/service-des-domaines.md) |
-| 3 | Service des Domaines | Mutation d'une parcelle | **write** | [service-des-domaines.md](domains/service-des-domaines.md) |
+| Body | Procedures | Kind | Current |
+|---|---|---|---|
+| Commune — état civil | Acte de naissance | read | [v0.1](commune/v0.1.md) |
+| Service des Domaines | CSJ · Mutation d'une parcelle | read · **write** | [v0.1](service-des-domaines/v0.1.md) |
+
+## How these documents work
+
+One PRD per body, versioned on its own line starting at v0.1. Superseded
+versions stay on disk and say so at the top, because a version records what I
+believed at the time and editing it destroys the only thing it is for. Bumps are
+per body — the commune can reach v0.3 while the Domaines is still at v0.1, which
+is what working one domain at a time actually produces.
+
+Requirements carry identifiers — `ETC-001`, `DOM-001` — that are never reused
+and never renumbered. That is what lets a later claim that something is missing
+be checked against something citable, rather than remaining an opinion.
+
+Open questions get no identifier. A named problem is not a settled requirement,
+and giving it a number would dress it as one.
+
+Reasoning behind decisions is in [decisions.md](../decisions.md); how records
+are kept honest is in [architecture/](../architecture/).
 
 ## Two kinds of operation, not three procedures
 
@@ -41,5 +58,8 @@ no register at all.
 
 - Every other paper the communes and the Domaines issue.
 - Every other administrative body.
-- Certificats fonciers issued by the guichets fonciers communaux — see the
-  scope note in [service-des-domaines.md](domains/service-des-domaines.md).
+- Registering a new birth — see the scope section in
+  [commune/v0.1.md](commune/v0.1.md).
+- Succession, and certificats fonciers issued by the guichets fonciers
+  communaux — see the scope section in
+  [service-des-domaines/v0.1.md](service-des-domaines/v0.1.md).

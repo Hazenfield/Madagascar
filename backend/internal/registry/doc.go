@@ -6,5 +6,5 @@
 //
 // It knows nothing about HTTP, and nothing about who is allowed to ask.
 //
-// See docs/domains/.
+// See docs/prd/.
 package registry
