@@ -64,3 +64,16 @@ procedure. No single official can move a parcel.
 - **Succession does not fit this shape at all.** When a transfer follows a death,
   the previous holder cannot attend. Inheritance needs its own procedure, and the
   ceremony covers sale only.
+
+## Releasing the phone apps
+
+Neither phone app is on Google Play yet: there is no Android package name, no
+build profile and no upload step.
+
+Tracks: when Play releases are set up, every Android release of either app must
+go live on closed testing (Play track `alpha`) as well as internal testing, in a
+single step, so the two tracks never hold different builds. A release uploaded
+through the Play API cannot be moved on with the Play Console's Promote button,
+so both tracks have to be set at upload time. Production is never touched by a
+script. While an app has never been published, Play accepts only drafts, and
+both tracks get the draft.
